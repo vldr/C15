@@ -1,0 +1,1 @@
+{"name":"sqrtf.c","value":"float sqrtf(float n) \r\n{ \r\n    float x = n; \r\n    float y = 1.0; \r\n    float e = 0.000001;\r\n\r\n    while (x - y > e) \r\n    { \r\n        x = (x + y) / 2.0;\r\n        y = n / x;\r\n    } \r\n\r\n    return x; \r\n} \r\n\r\n// answer = 7.071068f\r\nfloat answer = sqrtf(50.0);","script":true}
