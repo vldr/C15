@@ -616,7 +616,7 @@ document.getElementById("run").onclick = function(event)
 
     if (socket == null)
     {
-        socket = new WebSocket('wss://c15.vldr.org');
+        socket = new WebSocket('wss://cpu.vldr.org');
         socket.addEventListener('open', function (event)
         {
             socket.send(JSON.stringify(final));
