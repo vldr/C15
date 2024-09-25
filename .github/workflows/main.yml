@@ -1,0 +1,38 @@
+name: Build, Test and Deploy
+
+permissions:
+  contents: write
+  
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up NodeJS 
+        uses: actions/setup-node@v1
+
+      - name: Build and Test Compiler
+        run: |
+          cd compiler
+          npm install
+          npm run build
+          npm test
+
+      - name: Build Programmer
+        run: |
+          cd programmer
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Deploy Editor
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: editor/

@@ -7,8 +7,8 @@
   "license": "ISC",
   "scripts": {
     "test": "jest --verbose",
-    "compile": "tsc -p tsconfig.json && node tools/generateParser.js",
-    "bundle": "npm run compile && webpack --config webpack.config.js"
+    "prebuild": "tsc -p tsconfig.json && node tools/generateParser.js",
+    "build": "npm run prebuild && webpack --config webpack.config.js"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
