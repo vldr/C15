@@ -42,7 +42,6 @@ var init = function ()
         {
             window.localStorage.setObj("zoomLevel", e);
             oldSetZoomLevel.call(EditorZoom, e);
-            console.log(e)
         };
 
         monaco.languages.register({ id: 'c15s' });
@@ -326,12 +325,9 @@ function renderTabs()
         const children = document.getElementById("menu").children;
         children[activeTab].scrollIntoView({ block: "end", inline: "nearest"});
 
-
-
         lastLength = tabTable.length;
         previousActiveTab = activeTab;
     }
-    // Change Active Tab.
     else
     {
         const children = document.getElementById("menu").children;
@@ -370,10 +366,9 @@ function renameTab(index)
 
 function exportTab()
 {
-    let exportObject = JSON.stringify(tabTable[activeTab]);
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(exportObject));
-    element.setAttribute('download', tabTable[activeTab].name.replace(".asm", "").replace(".c", "") + ".c15");
+    const element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + tabTable[activeTab].value);
+    element.setAttribute('download', tabTable[activeTab].name);
     element.style.display = 'none';
 
     document.body.appendChild(element);
