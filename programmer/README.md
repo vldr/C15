@@ -1,5 +1,7 @@
 # C15 Programmer
 
+A programmer used to read, write and execute data to and from the processor.
+
 ## Building
 To build the project:
 
