@@ -33,6 +33,6 @@ jobs:
           ./build.sh
 
       - name: Deploy Editor
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           folder: editor/
