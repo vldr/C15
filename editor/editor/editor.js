@@ -269,7 +269,7 @@ Storage.prototype.setObj = function(key, obj)
     return this.setItem(key, JSON.stringify(obj))
 }
 
-function lrs(url, e)
+function loadScript(url, e)
 {
     if (e.getElementsByClassName("loader").length)
         return;
@@ -396,7 +396,7 @@ function importScript(file)
 
 function addTab()
 {
-    let name = prompt("Please enter a new name. (use the .c extension to indicate the C file variant)");
+    let name = prompt("Please enter the name of your file:");
 
     if (name === null) return;
 
@@ -413,7 +413,8 @@ function addTab()
     }
     else
     {
-        index = tabTable.push({name: `${name}.asm`, value: "" });
+        alert("Error: You must have either .c or .asm at the end of your name.")
+        return;
     }
 
     save();

@@ -301,7 +301,9 @@ assign uart_data_out = finished_output;
 assign uart_n_write = !(finished_writing == 1);
 assign uart_n_read = !(finished_reading == 1);
 
-//////////////////////////////////////////////////
+//--------------------------------------------------------------------
+// Float multiplication
+//--------------------------------------------------------------------
 
 reg is_f_multing = 0;
 reg is_f_multing_read = 0;
@@ -323,7 +325,9 @@ fmult f32_mult(
     .output_z_ack(is_f_multing_read)
 );
 
-//////////////////////////////////////////////////
+//--------------------------------------------------------------------
+// Float division
+//--------------------------------------------------------------------
 
 reg is_f_diving = 0;
 reg is_f_diving_read = 0;
@@ -345,8 +349,9 @@ fdiv f32_div(
     .output_z_ack(is_f_diving_read)
 );
 
-//////////////////////////////////////////////////
-
+//--------------------------------------------------------------------
+// Float summation
+//--------------------------------------------------------------------
 
 reg is_f_adding_finished = 0;
 reg is_f_adding = 0;
@@ -368,7 +373,9 @@ fadder f32_adder(
     .output_z_ack(is_f_adding_read)
 );
 
-//////////////////////////////////////////////////
+//--------------------------------------------------------------------
+// Float to integer converter
+//--------------------------------------------------------------------
 
 reg is_f_to_i = 0;
 reg is_f_to_i_read = 0;
@@ -387,7 +394,9 @@ float_to_int f_to_i(
     .output_z_ack(is_f_to_i_read)
 );
 
-//////////////////////////////////////////////////
+//--------------------------------------------------------------------
+// Integer to float converter
+//--------------------------------------------------------------------
 
 reg is_i_to_f = 0;
 reg is_i_to_f_read = 0;
@@ -406,7 +415,9 @@ int_to_float i_to_f(
     .output_z_ack(is_i_to_f_read)
 );
 
-//////////////////////////////////////////////////
+//--------------------------------------------------------------------
+// CPU
+//--------------------------------------------------------------------
 
 `define OPCODE 7:0
 `define ARG0 19:8
@@ -416,8 +427,6 @@ reg [31:0] current_instruction;
 wire [7:0] opcode = current_instruction[`OPCODE];
 wire [11:0] arg0 = current_instruction[`ARG0];
 wire [11:0] arg1 = current_instruction[`ARG1];
-
-//////////////////////////////////////////////////
 
 always @(posedge HCLK or negedge HRESETN) begin
     // Check if one second has surpassed, stop the execution if so.
