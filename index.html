@@ -365,6 +365,22 @@
 					margin: 0 auto;
 				}
 			}
+
+			@media only screen and (max-width: 1135px) {
+				.info { grid-template-columns: repeat(4, 1fr); }
+			}
+
+			@media only screen and (max-width: 930px) {
+				.info { grid-template-columns: repeat(3, 1fr); }
+			}
+
+			@media only screen and (max-width: 715px) {
+				.info { grid-template-columns: repeat(2, 1fr); }
+			}
+
+			@media only screen and (max-width: 480px) {
+				.info { grid-template-columns: repeat(1, 1fr); }
+			}
 			
 			@keyframes spinner {
 				0% {
@@ -396,14 +412,14 @@
 				<br><i>Execution time is limited to 1000ms.</i>
 				<h2>Information</h2>
 				<p>
-					C15 is a 32-bit, 100 MHz softcore microprocessor synthesized using an FPGA. The processor contains three registers, all 32 bits wide: register A, register B, and register R, which is used for arithmetic results. There are four flags: zero, greater than, less than, and out of time (indicating the exhaustion of the execution time).
+					C15 is a 32-bit, 100 MHz softcore microprocessor synthesized using an FPGA. The processor contains three registers, all 32 bits wide: register A, register B, and register R, which are used for arithmetic operations. There are four flags: zero, greater than, less than, and out of time (indicating the exhaustion of the execution time).
 
-					<br><br>Press <b>"Run"</b> to assemble/compile, upload, and execute the machine code. You can program the processor by either using C15 assembly or the programming language C.
+					<br><br>Press <b>"Run"</b> to assemble/compile, upload, and execute the machine code. You can program the processor by either using C15 assembly or the C programming language.
 				</p>
 				
 				<h2><img class="info-icon" src="img/icon2.svg" />Using the C Compiler</h2>
 				<p>
-					To use the C compiler, create a new tab with the extension "<b>.c</b>".
+					To use the C compiler, click on the <img src="img/add.svg" style="filter:invert(1);height:18px;margin-bottom:-4px"> button and add <b>.c</b> to end of your filename.
 					The compiler has support for struct, integer, unsigned integer, and float types.
 					There is no support for recursion due to the limited stack space in the processor.
 					
@@ -520,28 +536,31 @@
 					
 					Try out these sample files by clicking on the links to load them into the editor:<br>
 					<ul>
-						<li><div class="link" onclick="lrs('samples/quick_sort.c15', this)">quick_sort.c</div></li>
-						<li><div class="link" onclick="lrs('samples/selection_sort.c15', this)">selection_sort.c</div></li>
-						<li><div class="link" onclick="lrs('samples/cosine.c15', this)">cosine.c</div></li>
-						<li><div class="link" onclick="lrs('samples/mod_pow.c15', this)">mod_pow.c</div></li>
-						<li><div class="link" onclick="lrs('samples/crc32.c15', this)">crc32.c</div></li>
-						<li><div class="link" onclick="lrs('samples/xtea.c15', this)">xtea.c</div></li>
-						<li><div class="link" onclick="lrs('samples/bcd.c15', this)">bcd.c</div></li>
-						<li><div class="link" onclick="lrs('samples/monte_carlo_pi.c15', this)">monte_carlo_pi.c</div></li>
-						<li><div class="link" onclick="lrs('samples/nearest_random_prime.c15', this)">nearest_random_prime.c</div></li>
-						<li><div class="link" onclick="lrs('samples/tonelli_shanks.c15', this)">tonelli_shanks.c</div></li>
-						<li><div class="link" onclick="lrs('samples/pascal.c15', this)">pascal.c</div></li>
-						<li><div class="link" onclick="lrs('samples/approxE.c15', this)">approxE.c</div></li>
-						<li><div class="link" onclick="lrs('samples/sqrtf.c15', this)">sqrtf.c</div></li>
-						<li><div class="link" onclick="lrs('samples/is_multiple_of_3.c15', this)">is_multiple_of_3.c</div></li>
-						<li><div class="link" onclick="lrs('samples/russian_peasant.c15', this)">russian_peasant.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/quick_sort.c15', this)">quick_sort.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/selection_sort.c15', this)">selection_sort.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/cosine.c15', this)">cosine.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/mod_pow.c15', this)">mod_pow.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/crc32.c15', this)">crc32.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/xtea.c15', this)">xtea.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/bcd.c15', this)">bcd.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/monte_carlo_pi.c15', this)">monte_carlo_pi.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/nearest_random_prime.c15', this)">nearest_random_prime.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/tonelli_shanks.c15', this)">tonelli_shanks.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/pascal.c15', this)">pascal.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/approxE.c15', this)">approxE.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/sqrtf.c15', this)">sqrtf.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/is_multiple_of_3.c15', this)">is_multiple_of_3.c</div></li>
+						<li><div class="link" onclick="loadScript('samples/russian_peasant.c15', this)">russian_peasant.c</div></li>
 					</ul>
 				</p>
 				
 				<h2><img class="info-icon" src="img/icon.svg" />Using the C15 Assembler</h2>
 				<p style="margin-bottom: 25px;">
-					Memory below all instructions is prefixed with the "a" character followed by the index. Numbers with the "0x" prefix are treated as hexadecimal, numbers ending with "f" are treated as single-precision floating point, and everything else is treated as decimal. Use the "#" symbol to begin a comment.
-					<br><br>Listed below is a subset of the C15 instruction set:
+					To use the assembler, click on the <img src="img/add.svg" style="filter:invert(1);height:18px;margin-bottom:-4px"> button and add <b>.asm</b> to end of your filename. Additionally, you can view the disassembly of C files by clicking on the <b>View Disassembly</b> button.<br><br>
+					<img src="img/layout.svg" style="width:100%" />
+					Instructions are 32-bits in size, except for <b>STORE</b> and <b>STOREPUSH</b>, which are 64-bits in size. Opcodes are 8-bits in size. Arguments/operands are 12-bits in size, except for the immediate values of <b>STORE</b> and <b>STOREPUSH</b>.
+					
+					 
 				</p>
 			</div>
 		</div>
@@ -578,12 +597,12 @@
 			<div>
 				<h1><span>STORE</span> VALUE ADDRESS</h1>
 				<p>Writes the given immediate <b>value</b> to the <b>address</b>.</p>
-				<i>The given immediate value can be 32-bits in length, but note that, this instruction occupies 64-bits of memory.</i>
+				<i>The given immediate value is 32-bits in size.</i>
 			</div>
 			<div>
 				<h1><span>STOREPUSH</span> VALUE</h1>
 				<p>Pushes the given immediate <b>value</b> to the top of the general-purpose stack.</p>
-				<i>The given immediate value can be 32-bits in length, but note that, this instruction occupies 64-bits of memory.</i>
+				<i>The given immediate value is 32-bits in size.</i>
 			</div>
 			<div>
 				<h1><span>QSTORE</span> VALUE ADDRESS</h1>
@@ -674,6 +693,14 @@
 				<p>Jumps to the given <b>address</b> (sets the program counter to the given <b>address</b>).</p>
 			</div>
 			<div>
+				<h1><span>JA</span> ADDRESS</h1>
+				<p>Jumps to the given <b>address</b> if the value in register R is <b>non-zero</b>.</p>
+			</div>
+			<div>
+				<h1><span>JNA</span> ADDRESS</h1>
+				<p>Jumps to the given <b>address</b> if the value in register R is <b>zero</b>.</p>
+			</div>
+			<div>
 				<h1><span>JZ</span> ADDRESS</h1>
 				<p>Jumps to the given <b>address</b> if the zero flag is set to 1.</p>
 			</div>
@@ -696,14 +723,6 @@
 			<div>
 				<h1><span>JGTE</span> ADDRESS</h1>
 				<p>Jumps to the given <b>address</b> if the less than flag is set to 0.</p>
-			</div>
-			<div>
-				<h1><span>JA</span> ADDRESS</h1>
-				<p>Jumps to the given <b>address</b> if the value in register R is <b>non-zero</b>.</p>
-			</div>
-			<div>
-				<h1><span>JNA</span> ADDRESS</h1>
-				<p>Jumps to the given <b>address</b> if the value in register R is <b>zero</b>.</p>
 			</div>
 			<div>
 				<h1><span>MOV</span> SOURCE DESTINATION</h1>
@@ -766,18 +785,30 @@
 				<p>Converts an integer in register A to a single-precision floating-point and places the result in register R. (float)A</p>
 			</div>
 			<div>
+				<h1 style="margin-bottom:-20px"><span>INC</span></h1>
+				<h1 style="margin-bottom:-20px"><span>SINC</span></h1>
+				<h1><span>FINC</span></h1>
+				<p>Increments the value of register A and saves the result back into register A. (A++)</p>
+			</div>
+			<div>
+				<h1 style="margin-bottom:-20px"><span>DEC</span></h1>
+				<h1 style="margin-bottom:-20px"><span>SDEC</span></h1>
+				<h1><span>FDEC</span></h1>
+				<p>Decrements the value of register A and saves the result back into register A. (A--)</p>
+			</div>
+			<div>
 				<h1 style="margin-bottom:-20px"><span>ADD</span></h1>
 				<h1 style="margin-bottom:-20px"><span>SADD</span></h1>
 				<h1><span>FADD</span></h1>
 				<p>Sums the values in register A and B and saves the result in register R. (A + B)</p>
-				<i>For unsigned/signed addition, the zero flag will be set to 1 if the result is zero. (which may occur because of an arithmetic overflow)</i>
+				<i>For unsigned/signed addition, the zero flag will be set to 1 if the result is zero (which may occur because of an arithmetic overflow).</i>
 			</div>
 			<div>
 				<h1 style="margin-bottom:-20px"><span>SUB</span></h1>
 				<h1 style="margin-bottom:-20px"><span>SSUB</span></h1>
 				<h1><span>FSUB</span></h1>
 				<p>Subtracts the values in register A and B and saves the result in register R. (A - B)</p>
-				<i>For unsigned/signed substraction, the zero flag will be set to 1 if the result is zero. (which may occur because of an arithmetic underflow)</i>
+				<i>For unsigned/signed substraction, the zero flag will be set to 1 if the result is zero (which may occur because of an arithmetic underflow).</i>
 			</div>
 			<div>
 				<h1 style="margin-bottom:-20px"><span>MULT</span></h1>
@@ -799,33 +830,19 @@
 				<p>Divides the values in register A and B and saves the remainder in register R. (A % B)</p>
 			</div>
 			<div>
-				<h1 style="margin-bottom:-20px"><span>INC</span></h1>
-				<h1 style="margin-bottom:-20px"><span>SINC</span></h1>
-				<h1><span>FINC</span></h1>
-				<p>Increments the value of register A and saves the result back into register A. (A++)</p>
-			</div>
-			<div>
-				<h1 style="margin-bottom:-20px"><span>DEC</span></h1>
-				<h1 style="margin-bottom:-20px"><span>SDEC</span></h1>
-				<h1><span>FDEC</span></h1>
-				<p>Decrements the value of register A and saves the result back into register A. (A--)</p>
-			</div>
-			<div>
 				<h1><span>CMP</span></h1>
-				<p>Compares the values in registers A and B and sets the flags accordingly:
-					<i>
-						<ul>
-							<li>
-								Zero to 1 if the value of A equals B.
-							</li>
-							<li>
-								Less Than to 1 if the value of A less than B.
-							</li>
-							<li>
-								Greater Than to 1 if the value of A greater than B.
-							</li>
-						</ul>
-					</i>
+				<p>Compares the values in registers A and B and sets the following flags:
+					<ul>
+						<li>
+							Zero to 1 if the value of A equals B.
+						</li>
+						<li>
+							Less Than to 1 if the value of A less than B.
+						</li>
+						<li>
+							Greater Than to 1 if the value of A greater than B.
+						</li>
+					</ul>
 				</p>
 			</div>
 			<div>
@@ -838,7 +855,7 @@
 				<h1 style="margin-bottom:-20px"><span>CMPGT</span></h1>
 				<h1 style="margin-bottom:-20px"><span>SCMPGT</span></h1>
 				<h1><span>FCMPGT</span></h1>
-				 <p>Compares the values in register A and B and places a <b>1</b> if A > B, otherwise <b>0</b> in register R.</p>
+				<p>Compares the values in register A and B and places a <b>1</b> if A > B, otherwise <b>0</b> in register R.</p>
 			</div>
 			<div>
 				<h1 style="margin-bottom:-20px"><span>CMPLTE</span></h1>
@@ -863,15 +880,14 @@
 				<h1 style="margin-bottom:-20px"><span>SCMPNE</span></h1>
 				<h1><span>FCMPNE</span></h1>
 				<p>Compares the values in register A and B and places a <b>1</b> if A != B, otherwise <b>0</b> in register R.</p>
-				</div>
-				<div>
-					<h1 style="margin-bottom:-20px"><span>NEG</span></h1>
-					<h1 style="margin-bottom:-20px"><span>SNEG</span></h1>
-					<h1><span>FNEG</span></h1>
-					<p>
+			</div>
+			<div>
+				<h1 style="margin-bottom:-20px"><span>NEG</span></h1>
+				<h1 style="margin-bottom:-20px"><span>SNEG</span></h1>
+				<h1><span>FNEG</span></h1>
+				<p>
 						Places a <b>1</b> in register R if the value in register A is <b>zero</b>.<br>
 						Places a <b>0</b> in register R if the value in register A is <b>non-zero</b>.<br><br>
-						<i>This instruction is equivalent to !A.</i>
 					</p>
 				</div>
 				<div>
