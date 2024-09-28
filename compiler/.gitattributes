@@ -1,2 +1,3 @@
 *.js linguist-detectable=false
+*.ts linguist-detectable=false
 *.pegjs linguist-detectable=false

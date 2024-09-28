@@ -9,6 +9,9 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+			:root {
+				color-scheme: dark;
+			}
 
 			body {
 				background: url('img/bg.svg');
@@ -95,6 +98,7 @@
 				white-space: pre-wrap !important;
 				white-space: -moz-pre-wrap !important;
 				white-space: -o-pre-wrap !important;
+				scrollbar-width: thin;
 			}
 
 			#wrapper {
@@ -246,23 +250,6 @@
 
 			i {
 				color:gray;
-			}
-
-			::-webkit-scrollbar {
-				width: 8px;
-				height: 6px;
-			}
-
-			::-webkit-scrollbar-track {
-				background: #f1f1f112;
-			}
-			
-			::-webkit-scrollbar-thumb {
-				background: #4a4747;
-			}
-
-			::-webkit-scrollbar-thumb:hover {
-				background: #555; 
 			}
 
 			.loader {
@@ -468,7 +455,7 @@
 						</li>
 						
 						<br>
-
+						
 						<li>
 							<b>
 								<span class="mtk21">uint </span><span class="mtk3 func">_urand</span><span class="mtk11">(</span><span class="mtk11">);</span>
@@ -481,20 +468,26 @@
 							</b>
 							returns the number of clock cycles that have elapsed since execution began.
 						</li>
+						<li>
+							<b>
+								<span class="mtk21">void </span><span class="mtk3 func">_setled</span><span class="mtk11">(</span><span class="mtk21">uint </span><span class="mtk3">n</span><span class="mtk11">);</span>
+							</b>
+							sets the on-board 8-bit LEDs to represent the provided unsigned integer value.
+						</li>
 						
 						<br>
 
 						<li>
 							<b>
-								<span class="mtk21">void </span><span class="mtk3 func">_push</span><span class="mtk11">(</span><span class="mtk21">uint </span><span class="mtk3">n</span><span class="mtk11">);</span>
-							</b>
-							pushes an unsigned integer to the top of the general-purpose stack.
-						</li>
-						<li>
-							<b>
 								<span class="mtk21">void </span><span class="mtk3 func">_push</span><span class="mtk11">(</span><span class="mtk21">int </span><span class="mtk3">n</span><span class="mtk11">);</span>
 							</b>
 							pushes an integer to the top of the general-purpose stack.
+						</li>
+						<li>
+							<b>
+								<span class="mtk21">void </span><span class="mtk3 func">_push</span><span class="mtk11">(</span><span class="mtk21">uint </span><span class="mtk3">n</span><span class="mtk11">);</span>
+							</b>
+							pushes an unsigned integer to the top of the general-purpose stack.
 						</li>
 						<li>
 							<b>
@@ -507,15 +500,15 @@
 
 						<li>
 							<b>
-								<span class="mtk21">uint </span><span class="mtk3 func">_pop_uint</span><span class="mtk11">(</span><span class="mtk11">);</span>
-							</b>
-							pops an unsigned integer from the top of the general-purpose stack.
-						</li>
-						<li>
-							<b>
 								<span class="mtk21">int </span><span class="mtk3 func">_pop_int</span><span class="mtk11">(</span><span class="mtk11">);</span>
 							</b>
 							pops an integer from the top of the general-purpose stack.
+						</li>
+						<li>
+							<b>
+								<span class="mtk21">uint </span><span class="mtk3 func">_pop_uint</span><span class="mtk11">(</span><span class="mtk11">);</span>
+							</b>
+							pops an unsigned integer from the top of the general-purpose stack.
 						</li>
 						<li>
 							<b>
@@ -526,12 +519,6 @@
 
 						<br>
 
-						<li>
-							<b>
-								<span class="mtk21">void </span><span class="mtk3 func">_setled</span><span class="mtk11">(</span><span class="mtk21">uint </span><span class="mtk3">n</span><span class="mtk11">);</span>
-							</b>
-							sets the on-board 8-bit LEDs to represent the provided unsigned integer value.
-						</li>
 					</ul>
 					
 					Try out these sample files by clicking on the links to load them into the editor:<br>
