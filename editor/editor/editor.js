@@ -117,13 +117,15 @@ var init = function ()
         monaco.languages.setMonarchTokensProvider('c15', {
             tokenizer: {
                 root: [
-                    [/-?[0-9.e]+f/g, "number"],
-                    [/[A-Z]+\s?/, "opcode"],
-                    [/\.[a-z]+\s/, "sopcode"],
-                    [/#(.*)/, "comment"],
+                    [/\d+\.[fF]/, 'number'],
+                    [/\d*\.\d+([eE][\-+]?\d+)?[Ff]?/, 'number'],
+                    [/0[xX][0-9a-fA-F]+/, 'number'],
+                    [/\d+/, 'number'],
+
+                    [/^[A-Z]+\s?/, "opcode"],
+                    [/^\.[a-z]+\s/, "sopcode"],
+                    [/^#(.*)/, "comment"],
                     [/a{1}[0-9]+/, "address"],
-                    [/0x[A-Za-z0-9]+/, "number"],
-                    [/[0-9.]+/, "number"],
                     [/[a-zA-Z0-9_]+:?/, "label"],
                 ]
             }
